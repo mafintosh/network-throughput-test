@@ -1,0 +1,12 @@
+{
+  "name": "network-throughput-test",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "main": "server.js",
+  "author": "",
+  "dependencies": {
+    "@hyperswarm/dht": "^6.2.1",
+    "tiny-byte-size": "^1.1.0"
+  }
+}
