@@ -7,6 +7,7 @@
   "author": "",
   "dependencies": {
     "@hyperswarm/dht": "^6.2.1",
-    "tiny-byte-size": "^1.1.0"
+    "tiny-byte-size": "^1.1.0",
+    "udx-native": "hyperswarm/libudx#cubic"
   }
 }
