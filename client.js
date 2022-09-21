@@ -12,28 +12,28 @@ const block = Buffer.alloc(4 * 1024 * 1024)
 if (!onlyUDX) await tcp()
 if (!onlyTCP) await udx()
 
-console.log('Done! exiting...')
+console.error('Done! exiting...')
 
 process.exit()
 
 async function udx () {
-  console.log('Testing udx throughput... (encrypted)')
-  console.log()
+  console.error('Testing udx throughput... (encrypted)')
+  console.error()
   await test(node.connect(Buffer.from(publicKey, 'hex')))
-  console.log()
+  console.error()
 }
 
 async function tcp () {
-  console.log('Testing tcp throughput... (raw)')
-  console.log()
+  console.error('Testing tcp throughput... (raw)')
+  console.error()
   await test(net.connect(54540, ip))
-  console.log()
+  console.error()
 }
 
 async function test (socket) {
   for (let i = 0; i < 100; i++) socket.write(block)
   socket.end()
-  socket.pipe(process.stdout)
+  socket.on('data', data => process.stderr.write(data))
 
   return new Promise((resolve, reject) => {
     socket.on('error', reject)
